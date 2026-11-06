@@ -1,9 +1,7 @@
-import { defineConfig } from 'vite'
+﻿import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// IMPORTANT: set base to '/<your-repo-name>/' for GitHub Pages project sites.
-// If your repo is named devanshguptacu-create.github.io, use '/' instead.
 export default defineConfig({
   plugins: [react()],
-  base: '/devansh-portfolio/',
+  base: process.env.VERCEL === '1' ? '/' : '/devansh-portfolio/',
 })
