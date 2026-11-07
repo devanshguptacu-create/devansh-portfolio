@@ -1,10 +1,12 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Nav from '../components/Nav.jsx'
 import Hero from '../components/Hero.jsx'
 import About from '../components/About.jsx'
 import Skills from '../components/Skills.jsx'
 import Projects from '../components/Projects.jsx'
 import Certifications from '../components/Certifications.jsx'
+import Contact from '../components/Contact.jsx'
+import Footer from '../components/Footer.jsx'
 import { supabase } from '../lib/supabase.js'
 import {
   skills as defaultSkills,
@@ -87,12 +89,9 @@ export default function Home() {
         <Skills skills={skills} />
         <Projects projects={projects} />
         <Certifications certifications={certifications} />
+        <Contact />
       </main>
-      <footer>
-        <div className="wrap">
-          © {new Date().getFullYear()} {profile.name}. Built with React and Supabase.
-        </div>
-      </footer>
+      <Footer />
       <button
         className={'totop' + (showTop ? ' show' : '')}
         aria-label="Back to top"

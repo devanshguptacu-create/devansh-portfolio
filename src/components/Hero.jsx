@@ -21,7 +21,8 @@ export default function Hero() {
           <div className="role" aria-live="polite"><span key={i}>{p.roles[i]}</span></div>
           <p className="intro">{p.intro}</p>
           <div className="actions">
-            <a className="btn primary" href="#projects">Explore My Work</a>
+            <a className="btn primary" href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }) }}>Explore My Work</a>
+            <a className="btn" href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}>Contact Me</a>
             <a className="btn" href={base + p.resumePath} download>Download Resume</a>
             <a className="btn" href={p.github} target="_blank" rel="noopener noreferrer">GitHub</a>
             {p.linkedin && <a className="btn" href={p.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>}

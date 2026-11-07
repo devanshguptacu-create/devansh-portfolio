@@ -19,8 +19,8 @@ export const profile = {
   photoPath: 'photo.jpg',   // put your photo in /public (falls back to avatar if missing)
   resumePath: 'resume.pdf', // put your resume in /public
   github: 'https://github.com/devanshguptacu-create',
-  linkedin: '',             // PASTE your LinkedIn URL here
-  email: '',                // PASTE your email here
+  linkedin: 'https://www.linkedin.com/in/devansh-gupta-ab3990415',             // PASTE your LinkedIn URL here
+  email: 'kdevanshgupta@gmail.com',                // PASTE your email here
 }
 
 export const skills = [

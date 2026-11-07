@@ -1,8 +1,9 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
 
-const items = ['home', 'about', 'skills', 'projects']
+const items = ['home', 'about', 'skills', 'projects', 'certifications', 'contact']
+const labels = { certifications: 'Achievements' }
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
@@ -64,7 +65,7 @@ export default function Nav() {
                   scrollToSection(id)
                 }}
               >
-                {id[0].toUpperCase() + id.slice(1)}
+                {labels[id] || id[0].toUpperCase() + id.slice(1)}
               </a>
             </li>
           ))}
