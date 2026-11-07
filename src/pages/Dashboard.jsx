@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
 import { supabase } from '../lib/supabase.js'
+import MessagesManager from '../components/MessagesManager.jsx'
+import SettingsManager from '../components/SettingsManager.jsx'
 
 const emptyProject = {
   title: '',
@@ -427,6 +429,8 @@ export default function Dashboard() {
           <button type="button" onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}><span>▣</span> Projects</button>
           <button type="button" onClick={() => document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" })}><span>✳</span> Skills</button>
           <button type="button" onClick={() => document.getElementById("certifications")?.scrollIntoView({ behavior: "smooth" })}><span>♧</span> Certifications</button>
+          <button type="button" onClick={() => document.getElementById('messages')?.scrollIntoView({ behavior: 'smooth' })}><span>@</span> Messages</button>
+          <button type="button" onClick={() => document.getElementById('settings')?.scrollIntoView({ behavior: 'smooth' })}><span>*</span> Settings</button>
         </nav>
         <div className="admin-sidebar-bottom">
           <div className="admin-avatar">{(profile?.full_name || user.email || 'A').charAt(0).toUpperCase()}</div>
@@ -688,6 +692,9 @@ export default function Dashboard() {
               </div>
             </div>
           </section>
+
+          <MessagesManager />
+          <SettingsManager />
 
           <footer className="admin-footer">DG. Portfolio Admin <span>·</span> Manage your digital presence</footer>
         </div>

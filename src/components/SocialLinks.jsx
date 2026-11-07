@@ -1,6 +1,7 @@
-import { activeSocials } from '../data/social.js'
+import { useSiteSettings } from '../data/siteSettings.js'
 
 export default function SocialLinks() {
+  const { activeSocials } = useSiteSettings()
   return (
     <ul className="social-list">
       {activeSocials.map((s) => (

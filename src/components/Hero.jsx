@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import { profile as p } from '../data/content.js'
+import { useSiteSettings } from '../data/siteSettings.js'
 
 const base = import.meta.env.BASE_URL
 
 export default function Hero() {
+  const { profile: p } = useSiteSettings()
   const [i, setI] = useState(0)
   useEffect(() => {
     const t = setInterval(() => setI((n) => (n + 1) % p.roles.length), 2600)

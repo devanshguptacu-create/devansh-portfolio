@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabase.js'
 import { useAuth } from '../context/AuthContext.jsx'
-import { contact, activeSocials } from '../data/social.js'
+import { useSiteSettings } from '../data/siteSettings.js'
 
 const empty = { name: '', email: '', subject: '', message: '', website: '' }
 const emailOk = (v) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)
@@ -18,6 +18,7 @@ function validate(f) {
 
 export default function Contact() {
   const { user } = useAuth()
+  const { contact, activeSocials } = useSiteSettings()
   const [f, setF] = useState(empty)
   const [errs, setErrs] = useState({})
   const [state, setState] = useState('idle')

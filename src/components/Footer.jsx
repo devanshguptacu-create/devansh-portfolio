@@ -1,10 +1,10 @@
 import SocialLinks from './SocialLinks.jsx'
-import { contact, linkedinUrl } from '../data/social.js'
-import { profile } from '../data/content.js'
+import { useSiteSettings } from '../data/siteSettings.js'
 
 const links = [['home', 'Home'], ['about', 'About'], ['skills', 'Skills'], ['projects', 'Projects'], ['certifications', 'Achievements'], ['contact', 'Contact']]
 
 export default function Footer() {
+  const { contact, linkedinUrl, profile } = useSiteSettings()
   const go = (e, id) => { e.preventDefault(); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }) }
   return (
     <footer className="site-footer">
@@ -28,7 +28,7 @@ export default function Footer() {
           <SocialLinks />
         </div>
       </div>
-      <div className="wrap foot-copy">© {new Date().getFullYear()} {profile.name}. All rights reserved.</div>
+      <div className="wrap foot-copy">&copy; {new Date().getFullYear()} {profile.name}. All rights reserved.</div>
     </footer>
   )
 }
