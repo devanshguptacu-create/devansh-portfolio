@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabase.js'
 import { useAuth } from '../context/AuthContext.jsx'
+import Icon from './Icon.jsx'
 import { useSiteSettings } from '../data/siteSettings.js'
 
 const empty = { name: '', email: '', subject: '', message: '', website: '' }
@@ -68,11 +69,11 @@ export default function Contact() {
         </div>
         <div className="contact-grid reveal">
           <div className="contact-info">
-            <a className="card contact-item" href={`mailto:${contact.email}`}><span>Email</span><strong>{contact.email}</strong></a>
-            {liName('linkedin') && <a className="card contact-item" href={liName('linkedin')} target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><strong>Connect with me ↗</strong></a>}
-            {liName('github') && <a className="card contact-item" href={liName('github')} target="_blank" rel="noopener noreferrer"><span>GitHub</span><strong>View my repositories ↗</strong></a>}
-            {liName('instagram') && <a className="card contact-item" href={liName('instagram')} target="_blank" rel="noopener noreferrer"><span>Instagram</span><strong>Follow me ↗</strong></a>}
-            {contact.showPhone && contact.whatsapp && <a className="card contact-item" href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer"><span>WhatsApp / Phone</span><strong>{contact.phone} ↗</strong></a>}
+            <a className="card contact-item" href={`mailto:${contact.email}`}><span><Icon name="mail" size={16} /> Email</span><strong>{contact.email}</strong></a>
+            {liName('linkedin') && <a className="card contact-item" href={liName('linkedin')} target="_blank" rel="noopener noreferrer"><span><Icon name="linkedin" size={16} /> LinkedIn</span><strong>Connect with me ↗</strong></a>}
+            {liName('github') && <a className="card contact-item" href={liName('github')} target="_blank" rel="noopener noreferrer"><span><Icon name="github" size={16} /> GitHub</span><strong>View my repositories ↗</strong></a>}
+            {liName('instagram') && <a className="card contact-item" href={liName('instagram')} target="_blank" rel="noopener noreferrer"><span><Icon name="instagram" size={16} /> Instagram</span><strong>Follow me ↗</strong></a>}
+            {contact.showPhone && contact.whatsapp && <a className="card contact-item" href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer"><span><Icon name="whatsapp" size={16} /> WhatsApp / Phone</span><strong>{contact.phone} ↗</strong></a>}
           </div>
 
           <form className="card contact-form" onSubmit={submit} noValidate>

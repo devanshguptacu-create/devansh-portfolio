@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSiteSettings } from '../data/siteSettings.js'
+import Icon from './Icon.jsx'
 
 const base = import.meta.env.BASE_URL
 
@@ -25,8 +26,8 @@ export default function Hero() {
             <a className="btn primary" href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }) }}>Explore My Work</a>
             <a className="btn" href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}>Contact Me</a>
             <a className="btn" href={base + p.resumePath} download>Download Resume</a>
-            <a className="btn" href={p.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-            {p.linkedin && <a className="btn" href={p.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>}
+            <a className="btn" href={p.github} target="_blank" rel="noopener noreferrer"><Icon name="github" size={16} /> GitHub</a>
+            {p.linkedin && <a className="btn" href={p.linkedin} target="_blank" rel="noopener noreferrer"><Icon name="linkedin" size={16} /> LinkedIn</a>}
           </div>
         </div>
         <div className="avatar reveal">
