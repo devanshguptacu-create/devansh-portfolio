@@ -6,6 +6,7 @@ import Skills from '../components/Skills.jsx'
 import Projects from '../components/Projects.jsx'
 import Certifications from '../components/Certifications.jsx'
 import Contact from '../components/Contact.jsx'
+import Timeline from '../components/Timeline.jsx'
 import Footer from '../components/Footer.jsx'
 import { supabase } from '../lib/supabase.js'
 import {
@@ -89,6 +90,7 @@ export default function Home() {
         <Skills skills={skills} />
         <Projects projects={projects} />
         <Certifications certifications={certifications} />
+        <Timeline />
         <Contact />
       </main>
       <Footer />

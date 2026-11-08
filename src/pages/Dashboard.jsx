@@ -5,6 +5,7 @@ import { useAuth } from '../context/AuthContext.jsx'
 import { supabase } from '../lib/supabase.js'
 import MessagesManager from '../components/MessagesManager.jsx'
 import SettingsManager from '../components/SettingsManager.jsx'
+import TimelineManager from '../components/TimelineManager.jsx'
 
 const emptyProject = {
   title: '',
@@ -431,6 +432,7 @@ export default function Dashboard() {
           <button type="button" onClick={() => document.getElementById("certifications")?.scrollIntoView({ behavior: "smooth" })}><span>♧</span> Certifications</button>
           <button type="button" onClick={() => document.getElementById('messages')?.scrollIntoView({ behavior: 'smooth' })}><span>@</span> Messages</button>
           <button type="button" onClick={() => document.getElementById('settings')?.scrollIntoView({ behavior: 'smooth' })}><span>*</span> Settings</button>
+          <button type="button" onClick={() => document.getElementById('timeline-admin')?.scrollIntoView({ behavior: 'smooth' })}><span>~</span> Timeline</button>
         </nav>
         <div className="admin-sidebar-bottom">
           <div className="admin-avatar">{(profile?.full_name || user.email || 'A').charAt(0).toUpperCase()}</div>
@@ -695,6 +697,7 @@ export default function Dashboard() {
 
           <MessagesManager />
           <SettingsManager />
+          <TimelineManager />
 
           <footer className="admin-footer">DG. Portfolio Admin <span>·</span> Manage your digital presence</footer>
         </div>
