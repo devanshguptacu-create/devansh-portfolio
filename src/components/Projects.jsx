@@ -2,6 +2,25 @@ import { useEffect, useMemo, useState } from 'react'
 
 export const PROJECT_CATEGORIES = ['AI/ML', 'Web Development', 'Hackathon Projects', 'Open Source', 'Other Projects']
 
+function LivePreview({ p }) {
+  const ok = typeof p.demo_url === 'string' && /^https:\/\//i.test(p.demo_url)
+  if (!ok) {
+    return (
+      <div className="thumb">
+        {p.image_url ? <img src={p.image_url} alt={`${p.title} preview`} loading="lazy" /> : p.title}
+      </div>
+    )
+  }
+  return (
+    <div className="thumb live">
+      <iframe src={p.demo_url} title={`${p.title} live preview`} loading="lazy" tabIndex={-1}
+        sandbox="allow-scripts allow-same-origin allow-forms" referrerPolicy="no-referrer" />
+      <a className="live-hit" href={p.demo_url} target="_blank" rel="noopener noreferrer" aria-label={`Open ${p.title} live demo`}>
+        <span className="live-badge"><i className="live-dot" />Live preview</span>
+      </a>
+    </div>
+  )
+}
 export default function Projects({ projects }) {
   const [sel, setSel] = useState(null)
   const [cat, setCat] = useState('All')
@@ -41,9 +60,7 @@ export default function Projects({ projects }) {
         <div className="grid" key={cat}>
           {shown.map((p) => (
             <article className="card pcard card-in" key={p.id}>
-              <div className="thumb">
-                {p.image_url ? <img src={p.image_url} alt={`${p.title} preview`} loading="lazy" /> : p.title}
-              </div>
+              <LivePreview p={p} />
               <h3>{p.title}</h3>
               <p className="muted" style={{ fontSize: '.92rem' }}>{p.description}</p>
               <div>

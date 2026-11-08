@@ -888,3 +888,11 @@ main section h2{background:linear-gradient(180deg,#fff,#b7b7c6);-webkit-backgrou
 .social-btn{transition:transform .25s,color .25s,border-color .25s,box-shadow .25s,background .25s,translate .18s ease-out}
 .chip{transition:color .25s,border-color .25s,background .25s,transform .2s,translate .18s ease-out}
 .totop{transition:opacity .3s,transform .2s,translate .18s ease-out}
+
+/* ===== LIVE PREVIEW ===== */
+.thumb.live{position:relative;display:block;height:auto;aspect-ratio:16/10;padding:0;overflow:hidden;background:#fff}
+.thumb.live iframe{position:absolute;top:0;left:0;width:400%;height:400%;border:0;background:#fff;transform:scale(.25);transform-origin:0 0;pointer-events:none}
+.live-hit{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;justify-content:flex-start;padding:10px;background:linear-gradient(180deg,transparent 55%,rgba(11,11,13,.7));transition:background .3s}
+.live-hit:hover{background:linear-gradient(180deg,rgba(139,124,246,.12) 30%,rgba(11,11,13,.8))}
+.live-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(11,11,13,.85);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:99px;padding:4px 12px;font-size:.76rem;color:var(--text)}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#3ddc97;animation:pulse 2s infinite}
