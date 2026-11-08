@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
 import { isSupabaseConfigured } from '../lib/supabase.js'
@@ -94,6 +94,7 @@ export default function AuthPage({ mode }) {
           </button>
         </form>
 
+        {!register && <p className="auth-switch"><Link to="/forgot">Forgot password?</Link></p>}
         <p className="auth-switch">
           {register ? 'Already registered? ' : "Don't have an account? "}
           <Link to={register ? '/login' : '/register'}>

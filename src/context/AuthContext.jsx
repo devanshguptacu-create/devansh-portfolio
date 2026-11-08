@@ -1,4 +1,4 @@
-﻿import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase.js'
 
 const AuthContext = createContext(null)
@@ -39,7 +39,7 @@ export function AuthProvider({ children }) {
     signIn: (email, password) => supabase.auth.signInWithPassword({ email, password }),
     signInWithGoogle: () => supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: base } }),
     signOut: () => supabase.auth.signOut(),
-    resetPassword: (email) => supabase.auth.resetPasswordForEmail(email, { redirectTo: base + '#/reset' }),
+    resetPassword: (email) => supabase.auth.resetPasswordForEmail(email, { redirectTo: base }),
     refreshProfile: () => loadProfile(session?.user),
   }
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
