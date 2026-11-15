@@ -8,6 +8,7 @@ import Certifications from '../components/Certifications.jsx'
 import Contact from '../components/Contact.jsx'
 import Timeline from '../components/Timeline.jsx'
 import Footer from '../components/Footer.jsx'
+import BookingModal from '../components/BookingModal.jsx'
 import { supabase } from '../lib/supabase.js'
 import {
   skills as defaultSkills,
@@ -93,6 +94,7 @@ export default function Home() {
         <Timeline />
         <Contact />
       </main>
+      <BookingModal />
       <Footer />
       <button
         className={'totop' + (showTop ? ' show' : '')}

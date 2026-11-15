@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabase.js'
+import QuickActions from './QuickActions.jsx'
 import { useAuth } from '../context/AuthContext.jsx'
 import Icon from './Icon.jsx'
 import { useSiteSettings } from '../data/siteSettings.js'
@@ -67,6 +68,7 @@ export default function Contact() {
             Open to internships, collaborations and learning opportunities. Send a message and I will reply as soon as I can.
           </p>
         </div>
+        <QuickActions />
         <div className="contact-grid reveal">
           <div className="contact-info">
             <a className="card contact-item" href={`mailto:${contact.email}`}><span><Icon name="mail" size={16} /> Email</span><strong>{contact.email}</strong></a>

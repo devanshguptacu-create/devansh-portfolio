@@ -25,6 +25,7 @@ export default function Hero() {
           <div className="actions">
             <a className="btn primary" href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }) }}>Explore My Work</a>
             <a className="btn" href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}>Contact Me</a>
+            <button type="button" className="btn" onClick={() => window.dispatchEvent(new Event('open-booking'))}>Book a Call</button>
             <a className="btn" href={base + p.resumePath} download>Download Resume</a>
             <a className="btn" href={p.github} target="_blank" rel="noopener noreferrer"><Icon name="github" size={16} /> GitHub</a>
             {p.linkedin && <a className="btn" href={p.linkedin} target="_blank" rel="noopener noreferrer"><Icon name="linkedin" size={16} /> LinkedIn</a>}

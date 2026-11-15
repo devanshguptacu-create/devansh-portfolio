@@ -60,7 +60,7 @@ export default function Projects({ projects }) {
         <div className="grid" key={cat}>
           {shown.map((p) => (
             <article className="card pcard card-in" key={p.id}>
-              <LivePreview p={p} />
+              <div className="thumb">{p.image_url ? <img src={p.image_url} alt={`${p.title} preview`} loading="lazy" /> : p.title}</div>
               <h3>{p.title}</h3>
               <p className="muted" style={{ fontSize: '.92rem' }}>{p.description}</p>
               <div>
