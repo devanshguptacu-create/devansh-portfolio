@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './intro.css'
 
 const NAME = 'DEVANSH GUPTA'
@@ -6,7 +6,6 @@ const KEY = 'dg-intro-seen'
 
 function shouldShow() {
   try {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false
     return !sessionStorage.getItem(KEY)
   } catch {
     return true
@@ -37,7 +36,7 @@ export default function Intro() {
   if (gone) { document.documentElement.classList.add('site-ready'); return null }
 
   return (
-    <div className={'dg-intro' + (leaving ? ' leaving' : '')} onClick={() => setLeaving(true)} aria-hidden="true">
+    <div className={'dg-intro' + (leaving ? ' leaving' : '') + (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? ' calm' : '')} onClick={() => setLeaving(true)} aria-hidden="true">
       <div className="intro-grid" />
       <div className="intro-glow" />
       <div className="intro-center">

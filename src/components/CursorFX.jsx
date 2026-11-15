@@ -2,7 +2,8 @@ import { useEffect } from 'react'
 
 export default function CursorFX() {
   useEffect(() => {
-    if (!matchMedia('(pointer:fine)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (!matchMedia('(pointer:fine)').matches) return
+    const calm = matchMedia('(prefers-reduced-motion: reduce)').matches
 
     document.documentElement.classList.add('fx-cursor')
     const canvas = document.createElement('canvas')
@@ -29,7 +30,7 @@ export default function CursorFX() {
     const head = { x: -100, y: -100 }
     const trail = []
     const bursts = []
-    const MAX = 22
+    const MAX = calm ? 0 : 22
     let idle = true
     let idleTimer = 0
     let raf = 0
@@ -98,7 +99,7 @@ export default function CursorFX() {
       ring.classList.toggle('txt', !!field)
       ring.classList.toggle('hot', !!t.closest?.('a,button,[role=button],label'))
 
-      const m = t.closest?.('.btn,.social-btn,.chip,.totop')
+      const m = calm ? null : t.closest?.('.btn,.social-btn,.chip,.totop')
       if (m !== magnet) resetMagnet()
       if (m) {
         magnet = m
@@ -119,7 +120,7 @@ export default function CursorFX() {
 
     const down = () => {
       ring.classList.add('down')
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < (calm ? 0 : 10); i++) {
         const a = (i / 10) * 6.283 + Math.random() * 0.4
         const s = 2.5 + Math.random() * 3
         bursts.push({ x: mouse.x, y: mouse.y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, life: 1, c: i % 2 ? 'rgba(139,124,246,' : 'rgba(79,140,255,' })

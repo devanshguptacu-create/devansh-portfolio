@@ -896,3 +896,15 @@ main section h2{background:linear-gradient(180deg,#fff,#b7b7c6);-webkit-backgrou
 .live-hit:hover{background:linear-gradient(180deg,rgba(139,124,246,.12) 30%,rgba(11,11,13,.8))}
 .live-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(11,11,13,.85);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:99px;padding:4px 12px;font-size:.76rem;color:var(--text)}
 .live-dot{width:7px;height:7px;border-radius:50%;background:#3ddc97;animation:pulse 2s infinite}
+
+/* ===== CALM MOTION (reduced-motion systems) ===== */
+@keyframes calmFade{to{opacity:1}}
+@keyframes calmBar{to{transform:scaleX(1)}}
+@media (prefers-reduced-motion: reduce){
+  .dg-intro.calm .intro-grid,.dg-intro.calm .intro-glow{animation:none!important}
+  .dg-intro.calm .intro-mark,.dg-intro.calm .intro-name span,.dg-intro.calm .intro-sub{animation:calmFade .9s ease forwards!important;transform:none!important}
+  .dg-intro.calm .intro-bar i{animation:calmBar 2.3s ease forwards!important}
+  .dg-intro.calm{transition:opacity .6s ease!important}
+  .dg-intro.calm.leaving{transform:none!important;opacity:0!important}
+  .fx-ring{transition:none!important}
+}
